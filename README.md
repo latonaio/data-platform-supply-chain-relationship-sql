@@ -9,7 +9,13 @@ https://api.XXXXXXXX.com/api/OP_API_XXXXXXX_XXX/overview
 data-platform-supply-chain-relationship-sqlには、sqlの設定ファイルとして、以下のファイルが含まれます。 
 
 * data-platform-supply-chain-relationship-sql-general-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 一般データ）
-* data-platform-supply-chain-relationship-sql-plant-data.sql （データ連携基盤 サプライチェーンリレーションシップ - プラントデータ）
+* data-platform-supply-chain-relationship-sql-transaction-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 取引データ）
+* data-platform-supply-chain-relationship-sql-delivery-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 入出荷関係データ）
+* data-platform-supply-chain-relationship-sql-billing-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 請求関係データ）
+* data-platform-supply-chain-relationship-sql-payment-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 決済関係データ）
+* data-platform-supply-chain-relationship-sql-plant-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - プラント関係データ）
+* data-platform-supply-chain-relationship-sql-plant-relation-product-data.sql （データ連携基盤 サプライチェーンリレーションシップ - プラント関係品目データ）
+* data-platform-supply-chain-relationship-sql-plant-relation-product-mrp-area-data.sql （データ連携基盤 サプライチェーンリレーションシップ - プラント関係品目MRPデータ）
 
 ## MySQLのセットアップ / Kubernetesの設定 / SQLテーブルの作成方法  
 MySQLのセットアップ / Kubernetesの設定 / 具体的なSQLテーブルの作成方法、については、[mysql-kube](https://github.com/latonaio/mysql-kube)を参照ください。  
