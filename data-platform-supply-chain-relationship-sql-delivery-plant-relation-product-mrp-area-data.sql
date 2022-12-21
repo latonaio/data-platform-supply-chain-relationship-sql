@@ -1,4 +1,4 @@
-CREATE TABLE `data_platform_supply_chain_relationship_plant_relation_product_mrp_area_data`
+CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_product_mrp_area_data`
 (
     `SupplyChainRelationshipID`                 int(16) NOT NULL,
     `SupplyChainRelationshipDeliveryID`         int(6) NOT NULL,
@@ -38,12 +38,12 @@ CREATE TABLE `data_platform_supply_chain_relationship_plant_relation_product_mrp
 
     PRIMARY KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`, `MRPArea`),
     
-    CONSTRAINT `DataPlatformSupplyChainRelationshipPlantRelationProductMRPAreaData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`) REFERENCES `data_platform_supply_chain_relationship_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipPlantRelationProductMRPAreaDataDeliverToPlantProduct_fk` FOREIGN KEY (`Product`, `DeliverToParty`, `DeliverToPlant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipPlantRelationProductMRPAreaDataDeliverFromPlantProduct_fk` FOREIGN KEY (`Product`, `DeliverFromParty`, `DeliverFromPlant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipPlantRelationProductMRPAreaDataDeliverToStorageLocation_fk` FOREIGN KEY (`DeliverToParty`, `DeliverToPlant`, `DeliverToStorageLocation`) REFERENCES `data_platform_plant_storage_location_data` (`BusinessPartner`, `Plant`, `StorageLocation`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipPlantRelationProductMRPAreaDataDeliverFromStorageLocation_fk` FOREIGN KEY (`DeliverFromParty`, `DeliverFromPlant`, `DeliverFromStorageLocation`) REFERENCES `data_platform_plant_storage_location_data` (`BusinessPartner`, `Plant`, `StorageLocation`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipPlantRelationProductMRPAreaDataDeliveryUnit_fk` FOREIGN KEY (`DeliveryUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`)
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`) REFERENCES `data_platform_supply_chain_relationship_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverToPlantProduct_fk` FOREIGN KEY (`Product`, `DeliverToParty`, `DeliverToPlant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverFromPlantProduct_fk` FOREIGN KEY (`Product`, `DeliverFromParty`, `DeliverFromPlant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverToStorageLocation_fk` FOREIGN KEY (`DeliverToParty`, `DeliverToPlant`, `DeliverToStorageLocation`) REFERENCES `data_platform_plant_storage_location_data` (`BusinessPartner`, `Plant`, `StorageLocation`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverFromStorageLocation_fk` FOREIGN KEY (`DeliverFromParty`, `DeliverFromPlant`, `DeliverFromStorageLocation`) REFERENCES `data_platform_plant_storage_location_data` (`BusinessPartner`, `Plant`, `StorageLocation`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliveryUnit_fk` FOREIGN KEY (`DeliveryUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

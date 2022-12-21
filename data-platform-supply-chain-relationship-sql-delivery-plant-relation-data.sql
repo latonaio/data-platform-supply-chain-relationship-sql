@@ -1,4 +1,4 @@
-CREATE TABLE `data_platform_supply_chain_relationship_plant_relation_data`
+CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_data`
 (
     `SupplyChainRelationshipID`         int(16) NOT NULL,
     `SupplyChainRelationshipDeliveryID` int(6) NOT NULL,
@@ -18,9 +18,9 @@ CREATE TABLE `data_platform_supply_chain_relationship_plant_relation_data`
 
     PRIMARY KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`),
     
-    CONSTRAINT `DataPlatformSupplyChainRelationshipPlantRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`) REFERENCES `data_platform_supply_chain_relationship_delivery_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipPlantRelationDataDeliverToPlant_fk` FOREIGN KEY (`DeliverToParty`, `DeliverToPlant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipPlantRelationDataDeliverFromPlant_fk` FOREIGN KEY (`DeliverFromParty`, `DeliverFromPlant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`)
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`) REFERENCES `data_platform_supply_chain_relationship_delivery_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationDataDeliverToPlant_fk` FOREIGN KEY (`DeliverToParty`, `DeliverToPlant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationDataDeliverFromPlant_fk` FOREIGN KEY (`DeliverFromParty`, `DeliverFromPlant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
