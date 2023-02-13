@@ -2,7 +2,7 @@ CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_pr
 (
     `SupplyChainRelationshipID`                 int(16) NOT NULL,
     `SupplyChainRelationshipDeliveryID`         int(6) NOT NULL,
-    `SupplyChainRelationshipPlantID`            int(4) NOT NULL,
+    `SupplyChainRelationshipDeliveryPlantID`    int(4) NOT NULL,
     `Buyer`                                     int(12) NOT NULL,
     `Seller`                                    int(12) NOT NULL,
     `DeliverToParty`                            int(12) NOT NULL,
@@ -10,8 +10,8 @@ CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_pr
     `DeliverToPlant`                            varchar(4) NOT NULL,
     `DeliverFromPlant`                          varchar(4) NOT NULL,
     `Product`                                   varchar(40) NOT NULL,
-    `DeliverToStorageLocation`                  varchar(4) NOT NULL,
-    `DeliverFromStorageLocation`                varchar(4) NOT NULL,
+    `DeliverToPlantStorageLocation`             varchar(4) NOT NULL,
+    `DeliverFromPlantStorageLocation`           varchar(4) NOT NULL,
     `DeliveryUnit`                              varchar(3) NOT NULL,
     `MRPType`                                   varchar(2) DEFAULT NULL,
     `MRPArea`                                   varchar(10) NOT NULL,
@@ -22,8 +22,8 @@ CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_pr
     `SafetyStockQuantityInBaseUnit`             float(15) DEFAULT NULL,
     `SafetyDuration`                            int(3) DEFAULT NULL,
     `MaximumStockQuantityInBaseUnit`            float(15) DEFAULT NULL,
-    `MinumumDeliveryQuantityInBaseUnit`         float(15) DEFAULT NULL,
-    `MinumumDeliveryLotSizeQuantityInBaseUnit`  float(15) DEFAULT NULL,
+    `MinimumDeliveryQuantityInBaseUnit`         float(15) DEFAULT NULL,
+    `MinimumDeliveryLotSizeQuantityInBaseUnit`  float(15) DEFAULT NULL,
     `StandardDeliveryLotSizeQuantityInBaseUnit` float(15) DEFAULT NULL,
     `DeliveryLotSizeRoundingQuantityInBaseUnit` float(15) DEFAULT NULL,
     `MaximumDeliveryLotSizeQuantityInBaseUnit`  float(15) DEFAULT NULL,
@@ -36,13 +36,13 @@ CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_pr
     `LastChangeDate`                            date DEFAULT NULL,
     `IsMarkedForDeletion`                       tinyint(1) DEFAULT NULL,
 
-    PRIMARY KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`, `MRPArea`),
+    PRIMARY KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`, `MRPArea`),
     
-    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`) REFERENCES `data_platform_supply_chain_relationship_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`) REFERENCES `data_platform_supply_chain_relationship_plant_relation_product_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipDeliveryID`, `SupplyChainRelationshipDeliveryPlantID`, `Buyer`, `Seller`, `DeliverToParty`, `DeliverFromParty`, `DeliverToPlant`, `DeliverFromPlant`, `Product`),
     CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverToPlantProduct_fk` FOREIGN KEY (`Product`, `DeliverToParty`, `DeliverToPlant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
     CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverFromPlantProduct_fk` FOREIGN KEY (`Product`, `DeliverFromParty`, `DeliverFromPlant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverToStorageLocation_fk` FOREIGN KEY (`DeliverToParty`, `DeliverToPlant`, `DeliverToStorageLocation`) REFERENCES `data_platform_plant_storage_location_data` (`BusinessPartner`, `Plant`, `StorageLocation`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverFromStorageLocation_fk` FOREIGN KEY (`DeliverFromParty`, `DeliverFromPlant`, `DeliverFromStorageLocation`) REFERENCES `data_platform_plant_storage_location_data` (`BusinessPartner`, `Plant`, `StorageLocation`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverToPlantStorageLocation_fk` FOREIGN KEY (`Product`, `DeliverToParty`, `DeliverToPlant`, `DeliverToStorageLocation`) REFERENCES `data_platform_product_master_storage_location_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverFromPlantStorageLocation_fk` FOREIGN KEY (`Product`, `DeliverFromParty`, `DeliverFromPlant`, `DeliverFromStorageLocation`) REFERENCES `data_platform_product_master_storage_location_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`),
     CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliveryUnit_fk` FOREIGN KEY (`DeliveryUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`)
 
 ) ENGINE = InnoDB
