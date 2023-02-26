@@ -10,14 +10,16 @@ data-platform-supply-chain-relationship-sqlには、sqlの設定ファイルと�
 
 * data-platform-supply-chain-relationship-sql-general-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 一般データ）
 * data-platform-supply-chain-relationship-sql-transaction-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 取引データ）
-* data-platform-supply-chain-relationship-sql-delivery-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 入出荷関係データ）
+* data-platform-supply-chain-relationship-sql-delivery-plant-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 入出荷関係データ）
 * data-platform-supply-chain-relationship-sql-billing-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 請求関係データ）
 * data-platform-supply-chain-relationship-sql-payment-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 支払関係データ）
 * data-platform-supply-chain-relationship-sql-plant-delivery-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - プラント入出荷関係データ）
 * data-platform-supply-chain-relationship-sql-plant-delivery-relation-product-data.sql （データ連携基盤 サプライチェーンリレーションシップ - プラント入出荷関係品目データ）
-* data-platform-supply-chain-relationship-sql-plant-delivery-relation-product-mrp-area-data.sql （データ連携基盤 サプライチェーンリレーションシップ - プラント入出荷関係品目MRPデータ）
+* data-platform-supply-chain-relationship-sql-plant-delivery-plant-relation-product-mrp-area-data.sql （データ連携基盤 サプライチェーンリレーションシップ - プラント入出荷関係品目MRPデータ）
 * data-platform-supply-chain-relationship-sql-stock-conf-plant-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 在庫確認プラント関係データ）
 * data-platform-supply-chain-relationship-sql-stock-conf-plant-relation-product-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 在庫確認プラント関係品目データ）
+* data-platform-supply-chain-relationship-sql-production-plant-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 製造プラント関係データ）
+* data-platform-supply-chain-relationship-sql-production-plant-relation-product-mrp-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 製造プラント関係品目MRPデータ）
 
 ## MySQLのセットアップ / Kubernetesの設定 / SQLテーブルの作成方法  
 MySQLのセットアップ / Kubernetesの設定 / 具体的なSQLテーブルの作成方法、については、[mysql-kube](https://github.com/latonaio/mysql-kube)を参照ください。  
