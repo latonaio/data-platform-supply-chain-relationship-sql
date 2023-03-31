@@ -13,6 +13,7 @@ CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_pr
     `DeliverToPlantStorageLocation`             varchar(4) NOT NULL,
     `DeliverFromPlantStorageLocation`           varchar(4) NOT NULL,
     `DeliveryUnit`                              varchar(3) NOT NULL,
+    `QuantityPerPackage`                        float(15) DEFAULT NULL,
     `MRPType`                                   varchar(2) DEFAULT NULL,
     `MRPArea`                                   varchar(10) NOT NULL,
     `MRPController`                             varchar(3) DEFAULT NULL,

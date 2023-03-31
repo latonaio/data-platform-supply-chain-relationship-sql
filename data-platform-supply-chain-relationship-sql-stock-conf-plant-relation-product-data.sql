@@ -17,6 +17,6 @@ CREATE TABLE `data_platform_supply_chain_relationship_stock_conf_plant_relation_
     
     CONSTRAINT `DataPlatformSupplyChainRelationshipStockConfPlantRelationProductData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipStockConfPlantID`, `Buyer`, `Seller`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`) REFERENCES `data_platform_supply_chain_relationship_stock_conf_plant_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipStockConfPlantID`, `Buyer`, `Seller`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`),
     CONSTRAINT `DataPlatformSupplyChainRelationshipStockConfPlantRelationProductDataProduct_fk` FOREIGN KEY (`Product`) REFERENCES `data_platform_product_general_data` (`Product`)
-
+    
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

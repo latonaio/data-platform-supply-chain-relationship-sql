@@ -13,6 +13,7 @@ CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_pr
     `DeliverToPlantStorageLocation`             varchar(4) NOT NULL,
     `DeliverFromPlantStorageLocation`           varchar(4) NOT NULL,
     `DeliveryUnit`                              varchar(3) NOT NULL,
+    `QuantityPerPackage`                        float(15) DEFAULT NULL,
     `MRPType`                                   varchar(2) DEFAULT NULL,
     `MRPController`                             varchar(3) DEFAULT NULL,
     `ReorderThresholdQuantity`                  float(15) DEFAULT NULL,
@@ -43,6 +44,7 @@ CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_pr
     CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductDataDeliverToPlantStorageLocation_fk` FOREIGN KEY (`Product`, `DeliverToParty`, `DeliverToPlant`, `DeliverToPlantStorageLocation`) REFERENCES `data_platform_product_master_storage_location_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`),
     CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductDataDeliverFromPlantStorageLocation_fk` FOREIGN KEY (`Product`, `DeliverFromParty`, `DeliverFromPlant`, `DeliverFromPlantStorageLocation`) REFERENCES `data_platform_product_master_storage_location_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`),
     CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductDataDeliveryUnit_fk` FOREIGN KEY (`DeliveryUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`)
+
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
