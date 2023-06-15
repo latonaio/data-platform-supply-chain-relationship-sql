@@ -21,7 +21,8 @@ CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_pr
     `PlanningTimeFence`                         int(3) DEFAULT NULL,
     `MRPPlanningCalendar`                       varchar(3) DEFAULT NULL,
     `SafetyStockQuantityInBaseUnit`             float(15) DEFAULT NULL,
-    `SafetyDuration`                            int(3) DEFAULT NULL,
+    `SafetyDuration`                            float(11) DEFAULT NULL,
+    `SafetyDurationUnit`                        varchar(3) DEFAULT NULL,
     `MaximumStockQuantityInBaseUnit`            float(15) DEFAULT NULL,
     `MinimumDeliveryQuantityInBaseUnit`         float(15) DEFAULT NULL,
     `MinimumDeliveryLotSizeQuantityInBaseUnit`  float(15) DEFAULT NULL,
@@ -30,7 +31,8 @@ CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_pr
     `MaximumDeliveryLotSizeQuantityInBaseUnit`  float(15) DEFAULT NULL,
     `MaximumDeliveryQuantityInBaseUnit`         float(15) DEFAULT NULL,
     `DeliveryLotSizeIsFixed`                    tinyint(1) DEFAULT NULL,
-    `StandardDeliveryDurationInDays`            int(3) DEFAULT NULL,
+    `StandardDeliveryDuration`                  float(11) DEFAULT NULL,
+    `StandardDeliveryDurationUnit`              varchar(3) DEFAULT NULL,
     `IsAutoOrderCreationAllowed`                tinyint(1) DEFAULT NULL,
     `IsOrderAcknowledgementRequired`            tinyint(1) DEFAULT NULL,
     `CreationDate`                              date DEFAULT NULL,
@@ -44,7 +46,9 @@ CREATE TABLE `data_platform_supply_chain_relationship_delivery_plant_relation_pr
     CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverFromPlantProduct_fk` FOREIGN KEY (`Product`, `DeliverFromParty`, `DeliverFromPlant`) REFERENCES `data_platform_product_master_bp_plant_data` (`Product`, `BusinessPartner`, `Plant`),
     CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverToPlantStorageLocation_fk` FOREIGN KEY (`Product`, `DeliverToParty`, `DeliverToPlant`, `DeliverToStorageLocation`) REFERENCES `data_platform_product_master_storage_location_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`),
     CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliverFromPlantStorageLocation_fk` FOREIGN KEY (`Product`, `DeliverFromParty`, `DeliverFromPlant`, `DeliverFromStorageLocation`) REFERENCES `data_platform_product_master_storage_location_data` (`Product`, `BusinessPartner`, `Plant`, `StorageLocation`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliveryUnit_fk` FOREIGN KEY (`DeliveryUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`)
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataDeliveryUnit_fk` FOREIGN KEY (`DeliveryUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataSafetyDurationUnit_fk` FOREIGN KEY (`SafetyDurationUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`),
+    CONSTRAINT `DataPlatformSupplyChainRelationshipDeliveryPlantRelationProductMRPAreaDataStandardDeliveryDurationUnit_fk` FOREIGN KEY (`StandardDeliveryDurationUnit`) REFERENCES `data_platform_quantity_unit_quantity_unit_data` (`QuantityUnit`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
