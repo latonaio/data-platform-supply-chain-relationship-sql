@@ -1,4 +1,4 @@
-CREATE TABLE `data_platform_supply_chain_relationship_freight_billing_relation_data`
+CREATE TABLE `data_platform_scr_freight_billing_relation_data`
 (
     `SupplyChainRelationshipID`                    int(16) NOT NULL,
     `SupplyChainRelationshipFreightID`             int(16) NOT NULL,
@@ -20,9 +20,9 @@ CREATE TABLE `data_platform_supply_chain_relationship_freight_billing_relation_d
 
     PRIMARY KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipFreightID`, `SupplyChainRelationshipFreightBillingID`, `Buyer`, `Seller`, `FreightPartner`, `FreightBillToParty`, `FreightBillFromParty`),
     
-    CONSTRAINT `DataPlatformSupplyChainRelationshipFreightBillingRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipFreightID`, `Buyer`, `Seller`, `FreightPartner`) REFERENCES `data_platform_supply_chain_relationship_freight_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipFreightID`, `Buyer`, `Seller`, `FreightPartner`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipFreightBillingRelationDataFreightBillToParty_fk` FOREIGN KEY (`FreightBillToParty`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipFreightBillingRelationDataFreightBillFromParty_fk` FOREIGN KEY (`FreightBillFromParty`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)
+    CONSTRAINT `DPFMSCRFreightBillingRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipFreightID`, `Buyer`, `Seller`, `FreightPartner`) REFERENCES `data_platform_scr_freight_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipFreightID`, `Buyer`, `Seller`, `FreightPartner`),
+    CONSTRAINT `DPFMSCRFreightBillingRelationDataFreightBillToParty_fk` FOREIGN KEY (`FreightBillToParty`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
+    CONSTRAINT `DPFMSCRFreightBillingRelationDataFreightBillFromParty_fk` FOREIGN KEY (`FreightBillFromParty`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

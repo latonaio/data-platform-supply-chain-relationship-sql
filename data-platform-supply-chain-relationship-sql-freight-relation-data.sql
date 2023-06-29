@@ -1,4 +1,4 @@
-CREATE TABLE `data_platform_supply_chain_relationship_freight_relation_data`
+CREATE TABLE `data_platform_scr_freight_relation_data`
 (
     `SupplyChainRelationshipID`             int(16) NOT NULL,
     `SupplyChainRelationshipFreightID`      int(16) NOT NULL,
@@ -11,8 +11,8 @@ CREATE TABLE `data_platform_supply_chain_relationship_freight_relation_data`
 
     PRIMARY KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipFreightID`, `Buyer`, `Seller`, `FreightPartner`),
     
-    CONSTRAINT `DataPlatformSupplyChainRelationshipFreightRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `Buyer`, `Seller`) REFERENCES `data_platform_supply_chain_relationship_general_data` (`SupplyChainRelationshipID`, `Buyer`, `Seller`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipFreightRelationDataFreightPartner_fk` FOREIGN KEY (`FreightPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)    
+    CONSTRAINT `DPFMSCRFreightRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `Buyer`, `Seller`) REFERENCES `data_platform_scr_general_data` (`SupplyChainRelationshipID`, `Buyer`, `Seller`),
+    CONSTRAINT `DPFMSCRFreightRelationDataFreightPartner_fk` FOREIGN KEY (`FreightPartner`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)    
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

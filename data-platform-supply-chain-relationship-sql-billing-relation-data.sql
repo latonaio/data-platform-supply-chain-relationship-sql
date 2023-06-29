@@ -1,4 +1,4 @@
-CREATE TABLE `data_platform_supply_chain_relationship_billing_relation_data`
+CREATE TABLE `data_platform_scr_billing_relation_data`
 (
     `SupplyChainRelationshipID`            int(16) NOT NULL,
     `SupplyChainRelationshipBillingID`     int(4) NOT NULL,
@@ -12,15 +12,15 @@ CREATE TABLE `data_platform_supply_chain_relationship_billing_relation_data`
     `IsExportImport`                       tinyint(1) DEFAULT NULL,
     `TransactionTaxCategory`               varchar(4) DEFAULT NULL,
     `TransactionTaxClassification`         varchar(1) DEFAULT NULL,
-    `CreationDate`                         date DEFAULT NULL,
-    `LastChangeDate`                       date DEFAULT NULL,
+    `CreationDate`                         date NOT NULL,
+    `LastChangeDate`                       date NOT NULL,
     `IsMarkedForDeletion`                  tinyint(1) DEFAULT NULL,
 
     PRIMARY KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipBillingID`, `Buyer`, `Seller`, `BillToParty`, `BillFromParty`),
     
-    CONSTRAINT `DataPlatformSupplyChainRelationshipBillingRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `Buyer`, `Seller`) REFERENCES `data_platform_supply_chain_relationship_general_data` (`SupplyChainRelationshipID`, `Buyer`, `Seller`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipBillingRelationDataBillToParty_fk` FOREIGN KEY (`BillToParty`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
-    CONSTRAINT `DataPlatformSupplyChainRelationshipBillingRelationDataBillFromParty_fk` FOREIGN KEY (`BillFromParty`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)
+    CONSTRAINT `DPFMSCRBillingRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `Buyer`, `Seller`) REFERENCES `data_platform_scr_general_data` (`SupplyChainRelationshipID`, `Buyer`, `Seller`),
+    CONSTRAINT `DPFMSCRBillingRelationDataBillToParty_fk` FOREIGN KEY (`BillToParty`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
+    CONSTRAINT `DPFMSCRBillingRelationDataBillFromParty_fk` FOREIGN KEY (`BillFromParty`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
