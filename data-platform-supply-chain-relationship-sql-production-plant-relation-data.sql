@@ -16,7 +16,7 @@ CREATE TABLE `data_platform_scr_production_plant_relation_data`
     PRIMARY KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipProductionPlantID`, `Buyer`, `Seller`, `ProductionPlantBusinessPartner`, `ProductionPlant`),
     
     CONSTRAINT `DPFMSCRProductionPlantRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `Buyer`, `Seller`) REFERENCES `data_platform_scr_general_data` (`SupplyChainRelationshipID`, `Buyer`, `Seller`),
-    CONSTRAINT `DPFMSCRProductionPlantRelationDataProductionPlant_fk` FOREIGN KEY (`ProductionPlantBusinessParnter`, `ProductionPlant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`)
+    CONSTRAINT `DPFMSCRProductionPlantRelationDataProductionPlant_fk` FOREIGN KEY (`ProductionPlantBusinessPartner`, `ProductionPlant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;

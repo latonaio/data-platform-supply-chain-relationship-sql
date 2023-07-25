@@ -16,7 +16,7 @@ CREATE TABLE `data_platform_scr_stock_conf_plant_relation_data`
     PRIMARY KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipStockConfPlantID`, `Buyer`, `Seller`, `StockConfirmationBusinessPartner`, `StockConfirmationPlant`),
     
     CONSTRAINT `DPFMSCRStockConfPlantRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `Buyer`, `Seller`) REFERENCES `data_platform_scr_general_data` (`SupplyChainRelationshipID`, `Buyer`, `Seller`),
-    CONSTRAINT `DPFMSCRStockConfPlantRelationDataStockConfirmationPlant_fk` FOREIGN KEY (`StockConfirmationBusinessParnter`, `StockConfirmationBusinessPlant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`)
+    CONSTRAINT `DPFMSCRStockConfPlantRelationDataStockConfirmationPlant_fk` FOREIGN KEY (`StockConfirmationBusinessPartner`, `StockConfirmationPlant`) REFERENCES `data_platform_plant_general_data` (`BusinessPartner`, `Plant`)
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
