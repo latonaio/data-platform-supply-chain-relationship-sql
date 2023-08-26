@@ -9,6 +9,7 @@ https://api.XXXXXXXX.com/api/OP_API_XXXXXXX_XXX/overview
 data-platform-supply-chain-relationship-sqlには、sqlの設定ファイルとして、以下のファイルが含まれます。 
 
 * data-platform-supply-chain-relationship-sql-general-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 一般データ）
+* data-platform-supply-chain-relationship-sql-general-doc-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 一般文書データ）
 * data-platform-supply-chain-relationship-sql-transaction-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 取引データ）
 * data-platform-supply-chain-relationship-sql-delivery-plant-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 入出荷関係データ）
 * data-platform-supply-chain-relationship-sql-billing-relation-data.sql （データ連携基盤 サプライチェーンリレーションシップ - 請求関係データ）
