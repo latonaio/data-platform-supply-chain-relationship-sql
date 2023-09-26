@@ -25,8 +25,8 @@ CREATE TABLE `data_platform_scr_freight_payment_relation_data`
     CONSTRAINT `DPFMSCRFreightPaymentRelationData_fk` FOREIGN KEY (`SupplyChainRelationshipID`, `SupplyChainRelationshipFreightID`, `SupplyChainRelationshipFreightBillingID`, `Buyer`, `Seller`, `FreightPartner`, `FreightBillToParty`, `FreightBillFromParty`) REFERENCES `data_platform_scr_freight_billing_relation_data` (`SupplyChainRelationshipID`, `SupplyChainRelationshipFreightID`, `SupplyChainRelationshipFreightBillingID`, `Buyer`, `Seller`, `FreightPartner`, `FreightBillToParty`, `FreightBillFromParty`),
     CONSTRAINT `DPFMSCRFreightPaymentRelationDataFreightPayer_fk` FOREIGN KEY (`FreightPayer`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
     CONSTRAINT `DPFMSCRFreightPaymentRelationDataFreightPayee_fk` FOREIGN KEY (`FreightPayee`) REFERENCES `data_platform_business_partner_general_data` (`BusinessPartner`),
-    CONSTRAINT `DPFMSCRFreightPaymentRelationDataPayerHouseBankAccount_fk` FOREIGN KEY (`PayerHouseBank`, `PayerHouseBankAccount`) REFERENCES `data_platform_house_bank_house_bank_data` (`HouseBank`, `HouseBankAccount`),
-    CONSTRAINT `DPFMSCRFreightPaymentRelationDataPayeeHouseBankAccount_fk` FOREIGN KEY (`PayeeHouseBank`, `PayeeHouseBankAccount`) REFERENCES `data_platform_house_bank_house_bank_data` (`HouseBank`, `HouseBankAccount`)
+    -- CONSTRAINT `DPFMSCRFreightPaymentRelationDataPayerHouseBankAccount_fk` FOREIGN KEY (`PayerHouseBank`, `PayerHouseBankAccount`) REFERENCES `data_platform_house_bank_house_bank_data` (`HouseBank`, `HouseBankAccount`),　　テーブルなし
+    -- CONSTRAINT `DPFMSCRFreightPaymentRelationDataPayeeHouseBankAccount_fk` FOREIGN KEY (`PayeeHouseBank`, `PayeeHouseBankAccount`) REFERENCES `data_platform_house_bank_house_bank_data` (`HouseBank`, `HouseBankAccount`)　　テーブルなし
 
 ) ENGINE = InnoDB
   DEFAULT CHARSET = utf8mb4;
